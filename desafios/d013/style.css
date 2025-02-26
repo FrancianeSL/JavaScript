@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+.aprovado {
+    color: #008000;
+    background-color:#C6F4D6;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.reprovado {
+    color: #8B0A0A;
+    background-color:#FFC0C0;
+    padding: 5px;
+    border-radius: 10px; 
+}
+
+.recuperacao {
+    color: #FF9900;
+    background-color:#FFF2CC;
+    padding: 5px;
+    border-radius: 10px;
+}

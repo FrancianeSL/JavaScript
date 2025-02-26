@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Monetário</title>
+</head>
+<body>
+    <header>
+        <h1> Conversor R$ &#x27A1   US$</h1>
+    </header>
+    <section>
+        <div>
+            <input type="button" value="Converter" id="botao">
+        </div><br>
+        <div id="saida">
+            Clique no botão acima para iniciar.
+        </div>
+    </section>
+    <script>
+        cotacaoDolar = parseFloat(prompt('Antes de mais nada.Quanto está a cotação do dólar agora?'));
+
+        document.getElementById('botao').onclick = function() {
+            let reais = parseFloat(prompt('Quantos R$ você tem na carteira?'));
+            if (reais !== null) {
+                let dolares = reais / cotacaoDolar;
+                let saida = document.getElementById('saida');
+                saida.innerHTML = `Com R$ ${reais.toFixed(2)}, você pode comprar US$ ${dolares.toFixed(2)}`;
+            }
+        }
+    </script>
+</body>
+</html>

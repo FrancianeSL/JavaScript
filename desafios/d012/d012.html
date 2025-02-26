@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Mudou</title>
+</head>
+<body>
+    <header>
+        <h1>Preço mudou</h1>
+    </header>
+    <section>
+        <div>
+            <input type="button" value="Verificar" id="botao">
+        </div>
+        <div id="saida">
+            <p>Clique no botão acima para analisar a mudança de preço.</p>
+        </div>
+    </section>
+    <script>
+        document.getElementById('botao').onclick = function() {
+            let precoAnterior = parseFloat(prompt('Qual era o preço anterior do produto?'));
+            if (precoAnterior !== null) {
+                let precoAtual = parseFloat(prompt('Qual é o preço atual do produto?'));
+                if (precoAtual !== null) {
+                    let diferenca = precoAtual - precoAnterior;
+                    let percentual;
+                    if (diferenca > 0) {
+                        percentual = (diferenca / precoAnterior) * 100;
+                        let saida = document.getElementById('saida');
+                        saida.innerHTML = `
+                        <p><strong>Analisando os valores informados</strong></p>
+                        <p>O produto custava R$ ${precoAnterior} e agora custa R$ ${precoAtual}.</p>
+                        <p>Hoje o produto está mais caro.</p>
+                        <p>O preço subiu R$ ${diferenca.toFixed(2)} em relação ao preço anterior.</p>
+                        <p>Uma variação de ${percentual.toFixed(2)}% pra cima.</p>
+                        `;
+                    } else if (diferenca < 0) {
+                        percentual = (Math.abs(diferenca) / precoAnterior) * 100;
+                        let saida = document.getElementById('saida');
+                        saida.innerHTML = `
+                        <p><strong>Analisando os valores informados</strong></p>
+                        <p>O produto custava R$ ${precoAnterior} e agora custa R$ ${precoAtual}.</p>
+                        <p>Hoje o produto está mais barato.</p>
+                        <p>O preço caiu R$ ${Math.abs
+                        (diferenca).toFixed(2)} em relação ao preço anterior.</p>
+                        <p>Uma variação de ${percentual.toFixed(2)}% pra baixo.</p>
+                        `;
+                    } else {
+                        let saida = document.getElementById('saida');
+                        saida.innerHTML = `
+                        <p><strong>Analisando os valores informados</strong></p>
+                        <p>O produto custava R$ ${precoAnterior} e agora custa R$ ${precoAtual}.</p>
+                        <p>O preço do produto não mudou.</p>
+                        <p>O percentual de variação é 0% .</p>
+                        `;
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+</html>

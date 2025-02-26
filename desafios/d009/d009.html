@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar Salário</title>
+</head>
+<body>
+    <Header>
+        <h1>Reajuste salarial</h1>
+    </Header>
+    <section>
+        <div>
+            <input type="button" value="Ajustar Salário" id="botao">
+        </div>
+        <div id="saida">
+            <p>Clique no botão acima para iniciar.</p>
+        </div>
+    </section>
+    <script>
+        document.getElementById('botao').onclick = function() {
+            let nome = prompt('Qual é o nome do funcionário?');
+            if (nome !== null) {
+                let salario =
+                parseFloat(prompt(`Qual é o salário de ${nome} ?`));
+                if (salario !== null) {
+                    let porcentagem = parseFloat(prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`));
+                    if (porcentagem !== null) {
+                        let aumento = salario * porcentagem / 100;
+                        let salarioNovo = salario + aumento;
+                        let saida = document.getElementById('saida');
+                        saida.innerHTML = `
+                        <p><strong> ${nome} recebeu um aumento salarial!</strong></p>
+                        <p>O salário atual era ${salario.toFixed(2)}.</p>
+                        <p>Com um aumento de ${porcentagem}, o salário vai aumentar ${aumento.toFixed(2)} no próximo mês.</p>
+                        <p>E a partir daí, ${nome} vai passar a ganhar ${salarioNovo.toFixed(2)}.</p>`
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

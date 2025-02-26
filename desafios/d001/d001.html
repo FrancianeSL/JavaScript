@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+   <header>
+       <h1>Desafio das Mensagens</h1> 
+   </header>
+   <section>
+        <div id="botoes">
+            <input type="button" value="Botão 1" id="b1" >
+            <input type="button" value="Botão 2" id="b2">
+            <input type="button" value="Botão 3" id="b3">
+        </div>
+   </section>
+   <script>
+    document.getElementById('b1').onclick = function() {
+        alert('Você clicou no 1° botão!');
+    }
+    document.getElementById('b2').onclick = function() {
+        alert('Você clicou no 2° botão!');
+    }
+    document.getElementById('b3').onclick = function() {
+        alert('Você clicou no 3° botao!');
+    }
+   </script>
+</body>
+</html>

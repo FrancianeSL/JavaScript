@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio do Troco</title>
+</head>
+<body>
+    <header>
+        <h1>Calculando o Troco</h1>
+    </header>
+    <section>
+        <div>
+            <input type="button" value="Comprar produto" id="cp">
+        </div>
+    </section>
+    <script>
+        document.getElementById('cp').onclick = function() {
+            let produto = prompt('Que produto você está comprando?');
+            if (produto !== null) {
+                let preco = parseFloat(prompt(`Quanto custa o ${produto} que você está comprando?`));
+                if (preco !== null) {
+                    let pagamento = parseFloat(prompt(`Qual foi o valor que você deu para pagar o ${produto} ?`));
+                    if (pagamento !== null) {
+                        let troco = pagamento - preco;
+                        if (troco >= 0) {
+                            alert(`Você comprou ${produto} que custou ${preco}. Deu ${pagamento} em dinheiro e vai receber ${troco} de troco. Volte Sempre!`)
+                        } else {
+                            alert('O cliente não tem troco.');
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

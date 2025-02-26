@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Situação do aluno</h1>
+    </header>
+    <section>
+        <div>
+            <input type="button" value="Entrar com as notas" id="botao">
+        </div>
+        <div id="saida">
+            <p>Clique no botão acima para informar as notas do aluno.</p>
+        </div>
+    </section>
+    <script>
+        document.getElementById('botao').onclick = function() {
+            let nome = prompt('Qual é o nome do aluno?');
+            if (nome !== null) {
+                let nota1 = parseFloat(prompt(`Primeira nota de ${nome}:`));
+                if (nota1 !== null) {
+                    let nota2 = parseFloat(prompt(`Segunda nota de ${nome}:`));
+                    if (nota2 !== null) {
+                        let media = (nota1 + nota2) / 2;
+                        let saida = document.getElementById('saida');
+                        if (media < 3) {
+                        saida.innerHTML = `
+                        <p><strong>Analisando a situação de ${nome}</strong></p>
+                        <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p>
+                        <p>Com a média abaixo de 3,0, o aluno está <span class='reprovado'>REPROVADO</span></p>
+                        `;
+                    } else if (media >= 3 && media <= 6) {
+                        saida.innerHTML = `
+                        <p><strong>Analisando a situação de ${nome}</strong></p>
+                        <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p>
+                        <p>Com a média entre 3,0 e 6,0, o aluno está em <span class='recuperacao'>RECUPERAÇÃO</span></p>
+                        `;
+                    } else {
+                        saida.innerHTML = `
+                        <p><strong>Analisando a situação de ${nome}</strong></p>
+                        <p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong></p>
+                        <p>Com a média acima de 6,0, o aluno está <span class='aprovado'>APROVADO</span></p>
+                        `;
+                    }
+            }
+        }
+    }
+}
+    </script>
+</body>
+</html>
